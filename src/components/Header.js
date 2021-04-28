@@ -6,6 +6,7 @@ import {
   selectUserName,
   selectUserPhoto,
   setUserLoginDetails,
+  setSignOutState,
 } from "../features/userSlice";
 import { auth, provider } from "../firebase";
 
@@ -25,14 +26,24 @@ function Header() {
   }, [userName, history]);
 
   const handleAuth = () => {
-    auth
-      .signInWithPopup(provider)
-      .then((result) => {
-        setUser(result.user);
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
+    if (!userName) {
+      auth
+        .signInWithPopup(provider)
+        .then((result) => {
+          setUser(result.user);
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    } else if (userName) {
+      auth
+        .signOut()
+        .then(() => {
+          dispatch(setSignOutState());
+          history.push("/");
+        })
+        .catch((err) => alert(err.message));
+    }
   };
 
   const setUser = (user) => {
@@ -187,9 +198,9 @@ const NavMenu = styled.div`
     }
   }
 
-  /* @media (max-width: 768px) {
+  @media (max-width: 768px) {
     display: none;
-  } */
+  }
 `;
 
 const Login = styled.a`
@@ -222,7 +233,7 @@ const DropDown = styled.div`
   border-radius: 4px;
   box-shadow: rgb(0 0 0 / 50%) 0px 0px 18px 0px;
   padding: 10px;
-  font-size: 14px;
+  font-size: 13px;
   letter-spacing: 3px;
   width: 100px;
   opacity: 0;
