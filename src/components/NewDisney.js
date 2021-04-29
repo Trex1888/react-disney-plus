@@ -1,9 +1,13 @@
+import styled from "styled-components";
+
 function NewDisney() {
   return (
-    <div>
+    <Container>
       <p>newdisney</p>
-    </div>
+    </Container>
   );
 }
 
 export default NewDisney;
+
+const Container = styled.div``;

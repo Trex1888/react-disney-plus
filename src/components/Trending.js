@@ -2,10 +2,12 @@ import styled from "styled-components";
 
 function Trending() {
   return (
-    <div>
+    <Container>
       <p>trending</p>
-    </div>
+    </Container>
   );
 }
 
 export default Trending;
+
+const Container = styled.div``;

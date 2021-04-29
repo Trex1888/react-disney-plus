@@ -1,9 +1,13 @@
+import styled from "styled-components";
+
 function Originals() {
   return (
-    <div>
+    <Container>
       <h2>originals</h2>
-    </div>
+    </Container>
   );
 }
 
 export default Originals;
+
+const Container = styled.div``;
