@@ -4,16 +4,16 @@ function Login() {
   return (
     <Container>
       <Content>
-        <CTA>
-          <CTALogoOne src="/images/cta-logo-one.svg" alt="img" />
+        <Action>
+          <ActionLogoOne src="/images/cta-logo-one.svg" alt="img" />
           <SignUp>GET ALL THREE</SignUp>
           <Description>
-            Get Premier Access to Raya and the Last Dragon for an additional fee
-            with a Disney+ subscription. As of 03/26/21, the price of Disney+
-            and The Disney Bundle will increase by $1.
+            Get Premier Access to Raya and The Last Dragon for a small fee with
+            a Disney+ subscription. As of 05/01/21, the price of Disney+ and The
+            Disney Bundle will increase by $2.
           </Description>
-          <CTALogoTwo src="/images/cta-logo-two.png" alt="" />
-        </CTA>
+          <ActionLogoTwo src="/images/cta-logo-two.png" alt="" />
+        </Action>
         <BgImage />
       </Content>
     </Container>
@@ -57,14 +57,14 @@ const BgImage = styled.div`
   background-image: url("/images/login-background.jpg");
 `;
 
-const CTA = styled.div`
+const Action = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 650px;
   width: 100%;
 `;
 
-const CTALogoOne = styled.img`
+const ActionLogoOne = styled.img`
   display: block;
   width: 100%;
   max-width: 600px;
@@ -98,7 +98,7 @@ const Description = styled.p`
   letter-spacing: 1.5px;
 `;
 
-const CTALogoTwo = styled.img`
+const ActionLogoTwo = styled.img`
   display: inline-block;
   vertical-align: bottom;
   width: 100%;
